@@ -17,8 +17,8 @@
 ```
 # Create Cluster
 eksctl create cluster --name=eksdemo1 \
-                      --region=us-east-1 \
-                      --zones=us-east-1a,us-east-1b \
+                      --region=us-west-2 \
+                      --zones=us-west-2a,us-west-2b \
                       --without-nodegroup 
 
 # Get List of clusters
@@ -39,7 +39,7 @@ eksctl utils associate-iam-oidc-provider \
 
 # Replace with region & cluster name
 eksctl utils associate-iam-oidc-provider \
-    --region us-east-1 \
+    --region us-west-2 \
     --cluster eksdemo1 \
     --approve
 ```
@@ -56,7 +56,7 @@ eksctl utils associate-iam-oidc-provider \
  ```
 # Create Public Node Group   
 eksctl create nodegroup --cluster=eksdemo1 \
-                        --region=us-east-1 \
+                        --region=us-west-2 \
                         --name=eksdemo1-ng-public1 \
                         --node-type=t3.medium \
                         --nodes=2 \
